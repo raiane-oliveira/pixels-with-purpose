@@ -104,6 +104,7 @@ body {
 .slide-home-container {
   justify-content: center;
   padding: 8rem 7rem;
+  padding-right: 1.5rem;
 }
 
 .slide-home-subtitles {

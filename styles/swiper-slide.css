@@ -29,6 +29,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
+  left: 1rem;
   animation: slideIn 2.2s var(--easeInOutQuint);
 }
 
@@ -57,7 +58,7 @@
 }
 
 .swiper-pagination-vertical.swiper-pagination-bullets {
-  transform: translateX(35px) translate3d(0, 0, 0);
+  transform: translateX(30px) translate3d(0, 0, 0);
 }
 
 .swiper-pagination {
