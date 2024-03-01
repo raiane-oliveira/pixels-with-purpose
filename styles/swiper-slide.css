@@ -45,6 +45,12 @@
   z-index: 10;
   background: none;
   cursor: pointer;
+  transition: 2.8s var(--easeInOutQuint);
+}
+
+.main-slider[data-card-active='true'] .swiper-btn-next,
+.main-slider[data-card-active='true'] .swiper-btn-prev {
+  z-index: -1;
 }
 
 .swiper-btn-next:disabled,

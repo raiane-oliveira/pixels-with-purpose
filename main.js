@@ -54,6 +54,8 @@ const swiperBulletLabels = document.querySelectorAll(
   '.swiper-bullet-title-label'
 )
 
+const cardsContainer = document.querySelectorAll('.card-container')
+
 const backgroundElement = document.querySelector('.background')
 
 swiper.on('slideChange', () => {
@@ -63,11 +65,25 @@ swiper.on('slideChange', () => {
 
   backgroundElement.className = `background slide-${swiper.activeIndex + 1}`
 
-  swiperBulletLabels[swiper.previousIndex].setAttribute('data-direction', 'up')
-  swiperBulletLabels[swiper.activeIndex + 1].setAttribute(
-    'data-direction',
-    'down'
-  )
+  const prevSwiperBulletLabel = swiperBulletLabels[swiper.previousIndex]
+  if (prevSwiperBulletLabel) {
+    prevSwiperBulletLabel.setAttribute('data-direction', 'up')
+  }
+
+  const nextSwiperBulletLabel = swiperBulletLabels[swiper.activeIndex + 1]
+  if (nextSwiperBulletLabel) {
+    nextSwiperBulletLabel.setAttribute('data-direction', 'down')
+  }
+
+  const previousSlideCard = cardsContainer[swiper.previousIndex - 1]
+  if (previousSlideCard) {
+    previousSlideCard.setAttribute('data-direction', 'up')
+  }
+
+  const nextSlideCard = cardsContainer[swiper.activeIndex]
+  if (nextSlideCard) {
+    nextSlideCard.setAttribute('data-direction', 'down')
+  }
 })
 
 function updateToCurrentElement(element, currentIndex) {
@@ -76,4 +92,22 @@ function updateToCurrentElement(element, currentIndex) {
   } else {
     element.setAttribute('data-active', 'false')
   }
+}
+
+const mainSlider = document.querySelector('.main-slider')
+
+const cardsMainContainer = document.querySelectorAll('.card-main-container')
+
+function openCard() {
+  const currentCard = cardsMainContainer[swiper.activeIndex - 1]
+
+  currentCard.setAttribute('data-card-active', 'true')
+  mainSlider.setAttribute('data-card-active', 'true')
+}
+
+function closeCard() {
+  const currentCard = cardsMainContainer[swiper.activeIndex - 1]
+
+  currentCard.setAttribute('data-card-active', 'false')
+  mainSlider.setAttribute('data-card-active', 'false')
 }
