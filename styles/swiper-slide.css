@@ -58,7 +58,7 @@
 }
 
 .swiper-pagination-vertical.swiper-pagination-bullets {
-  transform: translateX(30px) translate3d(0, 0, 0);
+  transform: translate3d(30px, 0, 0);
 }
 
 .swiper-pagination {
@@ -130,7 +130,7 @@
   text-transform: uppercase;
   margin-bottom: -0.5rem;
 
-  transform: translateY(2rem);
+  transform: translate3d(0, 2rem, 0);
 
   opacity: 0;
   transition: transform 2.2s var(--easeInOutQuint),
@@ -138,20 +138,20 @@
 }
 
 .swiper-bullet-title-label[data-direction='up'] {
-  transform: translateY(-2rem);
+  transform: translate3d(0, -2rem, 0);
 }
 
 .swiper-bullet-title-label[data-direction='down'] {
-  transform: translateY(2rem);
+  transform: translate3d(0, 2rem, 0);
 }
 
 .swiper-bullet-title-label.slide-1 {
-  transform: translateY(-2rem);
+  transform: translate3d(0, -2rem, 0);
 }
 
 .main-container-navigation-bullets[data-active='true']
   .swiper-bullet-title-label {
   visibility: visible;
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
 }
