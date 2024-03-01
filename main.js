@@ -62,22 +62,12 @@ swiper.on('slideChange', () => {
   })
 
   backgroundElement.className = `background slide-${swiper.activeIndex + 1}`
-})
 
-swiper.navigation.prevEl[0].addEventListener('click', (e) => {
-  swiperBulletLabels.forEach((label) => {
-    const isActive = Boolean(label.getAttribute('data-active'))
-
-    label.setAttribute('data-direction', 'down')
-  })
-})
-
-swiper.navigation.nextEl[0].addEventListener('click', (e) => {
-  swiperBulletLabels.forEach((label) => {
-    const isActive = Boolean(label.getAttribute('data-active'))
-
-    label.setAttribute('data-direction', 'up')
-  })
+  swiperBulletLabels[swiper.previousIndex].setAttribute('data-direction', 'up')
+  swiperBulletLabels[swiper.activeIndex + 1].setAttribute(
+    'data-direction',
+    'down'
+  )
 })
 
 function updateToCurrentElement(element, currentIndex) {
