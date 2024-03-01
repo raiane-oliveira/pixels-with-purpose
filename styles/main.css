@@ -66,6 +66,10 @@ body {
   position: relative;
 }
 
+.sharp-grotesk-font {
+  font-family: 'Sharp Grotesk', 'times', sans-serif;
+}
+
 /* End utilities */
 
 .background {
@@ -162,7 +166,7 @@ body {
 .slide-home-heading-title {
   font-size: 18.75rem;
   font-weight: 600;
-  font-family: 'Sharp Grotesk', 'Sora', sans-serif;
+  font-family: 'Sharp Grotesk', 'times', sans-serif;
   margin: 0;
   line-height: 0.75;
   text-shadow: 8px 1px rgba(0, 0, 0, 0.2);
