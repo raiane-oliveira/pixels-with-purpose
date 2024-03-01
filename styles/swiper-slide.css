@@ -29,8 +29,12 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 1rem;
+  left: 2.5rem;
   animation: slideIn 2.2s var(--easeInOutQuint);
+
+  max-height: 52rem;
+  height: 100%;
+  margin: auto 0;
 }
 
 .swiper-btn-next,

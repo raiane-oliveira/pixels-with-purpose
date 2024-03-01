@@ -54,10 +54,14 @@ const swiperBulletLabels = document.querySelectorAll(
   '.swiper-bullet-title-label'
 )
 
+const backgroundElement = document.querySelector('.background')
+
 swiper.on('slideChange', () => {
   swiperBullets.forEach((bullet, index) => {
     updateToCurrentElement(bullet, index)
   })
+
+  backgroundElement.className = `background slide-${swiper.activeIndex + 1}`
 })
 
 swiper.navigation.prevEl[0].addEventListener('click', (e) => {
