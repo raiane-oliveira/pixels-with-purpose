@@ -420,6 +420,7 @@ img {
   align-items: flex-start;
   gap: 1rem;
   opacity: 0;
+  overflow: hidden;
 
   transition: transform 2.2s var(--easeInOutQuint),
     padding 2.8s var(--easeInOutQuint), opacity 2.2s var(--easeInOutQuint);
@@ -440,6 +441,27 @@ img {
 
 .card-main-container[data-card-active='true'] .card-container {
   padding-bottom: 0;
+}
+
+.card-container::after {
+  content: '';
+  visibility: hidden;
+  display: block;
+  position: absolute;
+  background-color: var(--white);
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  mix-blend-mode: overlay;
+  filter: blur(20px);
+  transform: translateX(-100px);
+  transition: transform 2.8s var(--easeInOutQuint),
+    visibility 2.8s var(--easeInOutQuint);
+}
+
+.card-main-container[data-card-active='true'] .card-container::after {
+  visibility: visible;
+  transform: translateX(100vw);
 }
 
 .card {
@@ -489,13 +511,11 @@ img {
 }
 
 .card-main-container[data-card-active='true'] .card-content {
-  /* display: flex; */
   visibility: visible;
 }
 
 .card-content {
   visibility: hidden;
-  /* display: none; */
   position: relative;
   z-index: 999;
   padding: 8rem 2.25rem;
