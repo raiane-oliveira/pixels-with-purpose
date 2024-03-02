@@ -411,16 +411,10 @@ img {
   position: absolute;
   top: 50%;
   left: 50%;
-  padding-bottom: 1.8rem;
   z-index: 10;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 1rem;
-  opacity: 0;
   overflow: hidden;
+
+  opacity: 0;
 
   transition: transform 2.2s var(--easeInOutQuint),
     padding 2.8s var(--easeInOutQuint), opacity 2.2s var(--easeInOutQuint);
@@ -443,36 +437,86 @@ img {
   padding-bottom: 0;
 }
 
-.card-container::after {
-  content: '';
-  visibility: hidden;
-  display: block;
-  position: absolute;
-  background-color: var(--white);
-  top: 0;
-  bottom: 0;
-  width: 100px;
-  mix-blend-mode: overlay;
-  filter: blur(20px);
-  transform: translateX(-100px);
-  transition: transform 2.8s var(--easeInOutQuint),
-    visibility 2.8s var(--easeInOutQuint);
+@keyframes waveOn {
+  0% {
+    mask-position: auto;
+  }
+  100% {
+    mask-position: -100vw;
+    mask-image: none;
+  }
 }
 
-.card-main-container[data-card-active='true'] .card-container::after {
-  visibility: visible;
-  transform: translateX(100vw);
+@keyframes waveOff {
+  0% {
+    mask-position: -100vw;
+  }
+  100% {
+    mask-position: auto;
+  }
 }
 
 .card {
+  position: relative;
   width: 26.875rem;
   height: 41.8rem;
+  mask-image: url('../assets/icons/wave-layer.svg');
+  mask-size: cover;
+  mask-repeat: repeat;
   transition: 2.8s var(--easeInOutQuint);
+  animation: waveOff 2.8s var(--easeInOutQuint);
+  z-index: 1;
 }
 
 .card-main-container[data-card-active='true'] .card {
   width: 100vw;
-  height: 100vh;
+  height: 120vh;
+  animation: waveOn 2.8s var(--easeInOutQuint) forwards;
+}
+
+.card::before {
+  content: '';
+  transform: translateX(32rem);
+}
+
+.card::before,
+.card-overlay-highlight {
+  visibility: hidden;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.16430322128851538) 10%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(255, 255, 255, 1) 31%,
+    rgba(255, 255, 255, 1) 66%,
+    rgba(0, 0, 0, 1) 76%,
+    rgba(0, 0, 0, 0.15870098039215685) 88%,
+    rgba(0, 0, 0, 0) 100%
+  );
+
+  width: 50%;
+  mix-blend-mode: overlay;
+  filter: blur(30px);
+  transition: transform 2.8s var(--easeInOutQuint),
+    visibility 2.8s var(--easeInOutQuint);
+}
+
+.card-overlay-highlight {
+  margin-left: 5rem;
+  transform: translateX(64rem);
+}
+
+.card-main-container[data-card-active='true'] .card::before,
+.card-main-container[data-card-active='true'] .card-overlay-highlight {
+  visibility: visible;
+  transform: translateX(-100vw);
+  mix-blend-mode: soft-light;
 }
 
 .card-container .card::after {
@@ -492,7 +536,7 @@ img {
 
 .card-legend {
   position: absolute;
-  bottom: 0;
+  bottom: 1.1rem;
   right: 0;
   left: 0;
 

@@ -112,6 +112,7 @@
   opacity: 1;
 
   transform: rotate(45deg);
+  transition: background-color 2.2s var(--easeInOutQuint);
 }
 
 .swiper-pagination-bullet-active {
