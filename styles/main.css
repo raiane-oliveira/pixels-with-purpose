@@ -243,10 +243,11 @@ img {
 .slide-home-button {
   display: grid;
   place-content: center;
+  position: relative;
 
   width: 24.7rem;
   height: 9.5rem;
-  margin-top: -2rem;
+  margin-top: -2.4rem;
   margin-left: 1rem;
 
   outline: 0;
@@ -262,9 +263,7 @@ img {
   text-transform: uppercase;
   font-size: 1.875rem;
 
-  transition: width 600ms var(--easeInOutQuint),
-    height 600ms var(--easeInOutQuint), font-size 600ms var(--easeInOutQuint),
-    transform 600ms var(--easeInOutQuint);
+  transition: 600ms var(--easeInOutQuint);
   cursor: pointer;
 }
 
@@ -281,10 +280,11 @@ img {
 }
 
 .slide-home-button:hover {
-  width: 29.5rem;
-  height: 11.4rem;
+  width: 32.3rem;
+  height: 12.5rem;
 
   font-size: 3.75rem;
+  margin-left: -2.875rem;
 
   border-radius: 7.52594rem;
   background: linear-gradient(
@@ -293,7 +293,7 @@ img {
     var(--purple-600) 98.34%
   );
 
-  transform: scale3d(1.1, 1.1, 1.1);
+  /* transform: scale3d(1.3, 1.1, 1.1); */
 }
 
 .slide-home-button:hover div {
