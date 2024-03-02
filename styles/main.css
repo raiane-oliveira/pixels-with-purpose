@@ -292,8 +292,6 @@ img {
     var(--red-500) 6%,
     var(--purple-600) 98.34%
   );
-
-  /* transform: scale3d(1.3, 1.1, 1.1); */
 }
 
 .slide-home-button:hover div {
@@ -577,7 +575,7 @@ img {
 
 .card-header-title-container {
   margin-top: 2.7rem;
-  height: 13.5rem;
+  height: 16.5rem;
   overflow: hidden;
 }
 
@@ -585,7 +583,6 @@ img {
   font-size: 18.75rem;
   font-weight: 600;
   margin: 0;
-  line-height: 0.8;
   transform: translate3d(0, 23.5rem, 0);
   transition: transform 2.8s var(--easeInOutQuint),
     opacity 2.8s var(--easeInOutQuint);
@@ -688,7 +685,7 @@ img {
   gap: 0.35rem;
   text-transform: uppercase;
   font-size: 0.9rem;
-  max-width: 15rem;
+  max-width: 21.5rem;
 
   position: absolute;
   bottom: 8.5rem;
