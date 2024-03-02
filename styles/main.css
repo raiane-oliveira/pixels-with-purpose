@@ -609,7 +609,8 @@ img {
 
 .card-subtitles {
   display: grid;
-  grid-template-columns: repeat(2, 9rem);
+  grid-template-columns: repeat(2, max-content);
+  column-gap: 3.5rem;
   margin-left: auto;
   margin-top: 1rem;
 }
@@ -617,6 +618,23 @@ img {
 .card-subtitle-container {
   overflow: hidden;
   height: 4.4rem;
+}
+
+.card-subtitle-container.card-subtitle-link {
+  margin-top: 1.8rem;
+  height: 6.3rem;
+  color: var(--white);
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.card-subtitle-container.card-subtitle-link .card-subtitle:first-child {
+  text-decoration: underline;
+}
+
+.card-subtitle-container.card-subtitle-link .card-subtitle.text-sm {
+  font-size: 0.9rem;
+  font-weight: 400;
 }
 
 .card-subtitle {
@@ -653,6 +671,8 @@ img {
   height: max-content;
   line-height: 0;
   transition: 300ms var(--easeInOutQuint);
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .card-social-medias a:hover {
@@ -660,8 +680,8 @@ img {
 }
 
 .card-social-medias img {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 100%;
+  height: 100%;
 }
 
 .card-description {
